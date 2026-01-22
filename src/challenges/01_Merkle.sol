@@ -132,7 +132,6 @@ contract MerkleMystery {
         uint256 value,
         bytes calldata targetData
     ) internal view {
-        // Use address decoder to get addresses in call data.
         (bool success, bytes memory returndata) = decoderAndSanitizer.staticcall(targetData);
         if (!success) {
             assembly {
