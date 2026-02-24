@@ -100,10 +100,10 @@ contract MerkleMystery {
         emit StrategistSet(strategist, allowed);
     }
 
-    function setManageRoot(bytes32 newRoot) external onlyOwner {
-        bytes32 oldRoot = manageRoot[msg.sender];
-        manageRoot[msg.sender] = newRoot;
-        emit ManageRootSet(msg.sender, oldRoot, newRoot);
+    function setManageRoot(address strategist, bytes32 newRoot) external onlyOwner {
+        bytes32 oldRoot = manageRoot[strategist];
+        manageRoot[strategist] = newRoot;
+        emit ManageRootSet(strategist, oldRoot, newRoot);
     }
 
     function manageVaultWithMerkleVerification(
